@@ -1,0 +1,330 @@
+2025-02-13 13:13:35 - Database connection successful.
+2025-02-13 13:13:35 - Table creation query executed successfully.
+2025-02-13 13:13:35 - Received form data: null
+2025-02-13 13:13:35 - Form validation failed: Missing required fields. Received data: null
+2025-02-13 13:18:26 - Database connection successful.
+2025-02-13 13:18:26 - Table creation query executed successfully.
+2025-02-13 13:18:26 - Received form data: null
+2025-02-13 13:18:26 - Form validation failed: Missing required fields. Received data: null
+2025-02-13 13:21:20 - Database connection successful.
+2025-02-13 13:21:20 - Table creation query executed successfully.
+2025-02-13 13:21:20 - Received form data: null
+2025-02-13 13:21:20 - Form validation failed: Missing required fields. Received data: null
+2025-02-13 13:31:31 - Database connection successful.
+2025-02-13 13:31:31 - Table creation query executed successfully.
+2025-02-13 13:31:31 - Received form data: null
+2025-02-13 13:31:31 - Form validation failed: Missing required fields. Received data: null
+2025-02-13 13:35:56 - Database connection successful.
+2025-02-13 13:35:56 - Table creation query executed successfully.
+2025-02-13 13:35:56 - Received form data: null
+2025-02-13 13:35:56 - Form validation failed: Missing required fields. Received data: null
+2025-02-13 13:56:44 - Database connection successful.
+2025-02-13 13:56:44 - Table creation query executed successfully.
+2025-02-13 13:56:44 - Received form data: {"email":"nomi","username":"nomi@gmail.com","password":"Zxcv1234","confirmPassword":"Zxcv1234"}
+2025-02-13 13:56:44 - Executing check query for existing user.
+2025-02-13 13:56:44 - No existing user found for email/username: {"email":"nomi","username":"nomi@gmail.com","password":"Zxcv1234","confirmPassword":"Zxcv1234"}
+2025-02-13 13:56:44 - Password hashed successfully.
+2025-02-13 13:56:44 - Role set to: user
+2025-02-13 13:56:44 - No avatar file uploaded or there was an error.
+2025-02-13 13:56:44 - No avatar uploaded or failed to upload avatar.
+2025-02-13 13:56:44 - Prepared SQL query to insert user data: INSERT INTO users (email, username, password, role, avatar) VALUES (:email, :username, :password, :role, :avatar)
+2025-02-13 13:56:44 - Executing insert query...
+2025-02-13 13:56:44 - User inserted successfully.
+2025-02-13 13:56:44 - Last Insert ID: 1
+2025-02-13 13:56:44 - Executing adminId update query: UPDATE users SET adminId = :adminId WHERE id = :id
+2025-02-13 13:56:44 - User registered successfully. User ID: 1
+2025-02-13 13:59:02 - Database connection successful.
+2025-02-13 13:59:02 - Table creation query executed successfully.
+2025-02-13 13:59:02 - Received form data: {"avatar":[],"data":"{\"email\":\"rana\",\"username\":\"rana@gmail.com\",\"password\":\"Zxcv1234\",\"confirmPassword\":\"Zxcv1234\"}"}
+2025-02-13 13:59:02 - Form validation failed: Missing required fields. Received data: {"avatar":[],"data":"{\"email\":\"rana\",\"username\":\"rana@gmail.com\",\"password\":\"Zxcv1234\",\"confirmPassword\":\"Zxcv1234\"}"}
+2025-02-13 14:02:07 - Database connection successful.
+2025-02-13 14:02:07 - Table creation query executed successfully.
+2025-02-13 14:02:07 - Received form data: null
+2025-02-13 14:02:07 - Form validation failed: Missing required fields. Received data: null
+2025-02-13 14:03:09 - Database connection successful.
+2025-02-13 14:03:09 - Table creation query executed successfully.
+2025-02-13 14:03:09 - Received form data: null
+2025-02-13 14:03:09 - Form validation failed: Missing required fields. Received data: null
+2025-02-13 14:06:48 - Database connection successful.
+2025-02-13 14:06:48 - Table creation query executed successfully.
+2025-02-13 14:06:48 - Received form data: {"email":"rana@gmail.com","username":"rana","password":"Zxcv1234","confirmPassword":"Zxcv1234","avatar":null}
+2025-02-13 14:06:48 - Executing check query for existing user.
+2025-02-13 14:06:48 - No existing user found for email/username: {"email":"rana@gmail.com","username":"rana","password":"Zxcv1234","confirmPassword":"Zxcv1234","avatar":null}
+2025-02-13 14:06:48 - Password hashed successfully.
+2025-02-13 14:06:48 - Role set to: user
+2025-02-13 14:06:48 - No avatar file uploaded or there was an error.
+2025-02-13 14:06:48 - No avatar uploaded or failed to upload avatar.
+2025-02-13 14:06:48 - Prepared SQL query to insert user data: INSERT INTO users (email, username, password, role, avatar) VALUES (:email, :username, :password, :role, :avatar)
+2025-02-13 14:06:48 - Executing insert query...
+2025-02-13 14:06:48 - User inserted successfully.
+2025-02-13 14:06:48 - Last Insert ID: 2
+2025-02-13 14:06:48 - Executing adminId update query: UPDATE users SET adminId = :adminId WHERE id = :id
+2025-02-13 14:06:48 - User registered successfully. User ID: 2
+2025-02-13 14:13:39 - Database connection successful.
+2025-02-13 14:13:39 - Table creation query executed successfully.
+2025-02-13 14:13:39 - Received form data: null
+2025-02-13 14:13:39 - Form validation failed: Missing required fields. Received data: null
+2025-02-13 14:15:38 - Database connection successful.
+2025-02-13 14:15:38 - Table creation query executed successfully.
+2025-02-13 14:15:38 - Received form data: null
+2025-02-13 14:15:38 - Form validation failed: Missing required fields. Received data: null
+2025-02-13 14:16:00 - Database connection successful.
+2025-02-13 14:16:00 - Table creation query executed successfully.
+2025-02-13 14:16:00 - Received form data: null
+2025-02-13 14:16:00 - Form validation failed: Missing required fields. Received data: null
+2025-02-13 14:19:53 - Database connection successful.
+2025-02-13 14:19:53 - Table creation query executed successfully.
+2025-02-13 14:19:53 - Received form data: null
+2025-02-13 14:19:53 - Form validation failed: Missing required fields. Received data: null
+2025-02-13 14:22:58 - Database connection successful.
+2025-02-13 14:22:58 - Table creation query executed successfully.
+2025-02-13 14:22:58 - Received form data - email: tabi2@gmail.com, username: tabi2
+2025-02-13 14:22:58 - Executing check query for existing user.
+2025-02-13 14:22:58 - No existing user found for email/username.
+2025-02-13 14:22:58 - Password hashed successfully.
+2025-02-13 14:22:58 - No avatar file uploaded or there was an error.
+2025-02-13 14:22:58 - No avatar uploaded or failed to upload avatar.
+2025-02-13 14:22:58 - Prepared SQL query to insert user data: INSERT INTO users (email, username, password, role, avatar) VALUES (:email, :username, :password, :role, :avatar)
+2025-02-13 14:22:58 - Executing insert query...
+2025-02-13 14:22:58 - User inserted successfully.
+2025-02-13 14:22:58 - Last Insert ID: 3
+2025-02-13 14:22:58 - Executing adminId update query: UPDATE users SET adminId = :adminId WHERE id = :id
+2025-02-13 14:22:58 - User registered successfully. User ID: 3
+2025-02-13 14:26:03 - Database connection successful.
+2025-02-13 14:26:03 - Table creation query executed successfully.
+2025-02-13 14:26:03 - Received form data - email: tabi3@gmail.com, username: tabi3, role: user
+2025-02-13 14:26:03 - Executing check query for existing user.
+2025-02-13 14:26:03 - No existing user found for email/username.
+2025-02-13 14:26:03 - Password hashed successfully.
+2025-02-13 14:26:03 - Prepared SQL query to insert user data: INSERT INTO users (email, username, password, role, avatar) VALUES (:email, :username, :password, :role, :avatar)
+2025-02-13 14:26:03 - Executing insert query...
+2025-02-13 14:26:03 - User inserted successfully.
+2025-02-13 14:26:03 - Last Insert ID: 4
+2025-02-13 14:26:03 - Executing adminId update query: UPDATE users SET adminId = :adminId WHERE id = :id
+2025-02-13 14:26:03 - User registered successfully. User ID: 4
+2025-02-13 14:31:22 - Database connection successful.
+2025-02-13 14:31:22 - Table creation query executed successfully.
+2025-02-13 14:31:22 - Received form data - email: tabi4@gmail.com, username: tabi4, role: user
+2025-02-13 14:31:22 - Executing check query for existing user.
+2025-02-13 14:31:22 - No existing user found for email/username.
+2025-02-13 14:31:22 - Password hashed successfully.
+2025-02-13 14:31:22 - Prepared SQL query to insert user data: INSERT INTO users (email, username, password, role, avatar) VALUES (:email, :username, :password, :role, :avatar)
+2025-02-13 14:31:22 - Executing insert query...
+2025-02-13 14:31:22 - User inserted successfully.
+2025-02-13 14:31:22 - Last Insert ID: 5
+2025-02-13 14:31:22 - Executing adminId update query: UPDATE users SET adminId = :adminId WHERE id = :id
+2025-02-13 14:31:22 - User registered successfully. User ID: 5
+2025-02-13 14:34:05 - Database connection successful.
+2025-02-13 14:34:05 - Table creation query executed successfully.
+2025-02-13 14:34:05 - Received form data - email: tabi5@gmail.com, username: tabi5, role: user
+2025-02-13 14:34:05 - Executing check query for existing user.
+2025-02-13 14:34:05 - No existing user found for email/username.
+2025-02-13 14:34:05 - Password hashed successfully.
+2025-02-13 14:34:05 - Prepared SQL query to insert user data: INSERT INTO users (email, username, password, role, avatar) VALUES (:email, :username, :password, :role, :avatar)
+2025-02-13 14:34:05 - Executing insert query...
+2025-02-13 14:34:05 - User inserted successfully.
+2025-02-13 14:34:05 - Last Insert ID: 6
+2025-02-13 14:34:05 - Executing adminId update query: UPDATE users SET adminId = :adminId WHERE id = :id
+2025-02-13 14:34:05 - User registered successfully. User ID: 6
+2025-02-13 14:35:15 - Database connection successful.
+2025-02-13 14:35:15 - Table creation query executed successfully.
+2025-02-13 14:35:15 - Received form data - email: tabi5@gmail.com, username: tabi5, role: user
+2025-02-13 14:35:15 - Executing check query for existing user.
+2025-02-13 14:35:15 - User already exists: {"email":"tabi5@gmail.com","username":"tabi5"}
+2025-02-13 14:40:56 - Database connection successful.
+2025-02-13 14:40:56 - Table creation query executed successfully.
+2025-02-13 14:40:56 - Received form data - email: tabi6@gmail.com, username: tabi7, role: user
+2025-02-13 14:40:56 - Executing check query for existing user.
+2025-02-13 14:40:56 - No existing user found for email/username.
+2025-02-13 14:40:56 - Password hashed successfully.
+2025-02-13 14:40:56 - Prepared SQL query to insert user data: INSERT INTO users (email, username, password, role, avatar) VALUES (:email, :username, :password, :role, :avatar)
+2025-02-13 14:40:56 - Executing insert query...
+2025-02-13 14:40:56 - User inserted successfully.
+2025-02-13 14:40:56 - Last Insert ID: 7
+2025-02-13 14:40:56 - Executing adminId update query: UPDATE users SET adminId = :adminId WHERE id = :id
+2025-02-13 14:40:56 - User registered successfully. User ID: 7
+2025-02-13 14:41:21 - Database connection successful.
+2025-02-13 14:41:21 - Table creation query executed successfully.
+2025-02-13 14:41:21 - Received form data - email: tabi6@gmail.com, username: tabi7, role: user
+2025-02-13 14:41:21 - Executing check query for existing user.
+2025-02-13 14:41:21 - User already exists: {"email":"tabi6@gmail.com","username":"tabi7"}
+2025-02-13 14:44:48 - Database connection successful.
+2025-02-13 14:44:48 - Table creation query executed successfully.
+2025-02-13 14:44:48 - Received form data - email: tabi6@gmail.com, username: tabi7, role: user
+2025-02-13 14:44:48 - Executing check query for existing user.
+2025-02-13 14:44:48 - User already exists: {"email":"tabi6@gmail.com","username":"tabi7"}
+2025-02-13 14:44:58 - Database connection successful.
+2025-02-13 14:44:58 - Table creation query executed successfully.
+2025-02-13 14:44:58 - Received form data - email: tabi8@gmail.com, username: tabi9, role: user
+2025-02-13 14:44:58 - Executing check query for existing user.
+2025-02-13 14:44:58 - No existing user found for email/username.
+2025-02-13 14:44:58 - Password hashed successfully.
+2025-02-13 14:44:58 - Prepared SQL query to insert user data: INSERT INTO users (email, username, password, role, avatar) VALUES (:email, :username, :password, :role, :avatar)
+2025-02-13 14:44:58 - Executing insert query...
+2025-02-13 14:44:58 - User inserted successfully.
+2025-02-13 14:44:58 - Last Insert ID: 8
+2025-02-13 14:44:58 - Executing adminId update query: UPDATE users SET adminId = :adminId WHERE id = :id
+2025-02-13 14:44:58 - User registered successfully. User ID: 8
+2025-02-13 14:46:56 - Database connection successful.
+2025-02-13 14:46:56 - Table creation query executed successfully.
+2025-02-13 14:46:56 - Received form data - email: tabi9@gmail.com, username: tabi10, role: user
+2025-02-13 14:46:56 - Executing check query for existing user.
+2025-02-13 14:46:56 - No existing user found for email/username.
+2025-02-13 14:46:56 - Password hashed successfully.
+2025-02-13 14:46:56 - Prepared SQL query to insert user data: INSERT INTO users (email, username, password, role, avatar) VALUES (:email, :username, :password, :role, :avatar)
+2025-02-13 14:46:56 - Executing insert query...
+2025-02-13 14:46:56 - User inserted successfully.
+2025-02-13 14:46:56 - Last Insert ID: 9
+2025-02-13 14:46:56 - Executing adminId update query: UPDATE users SET adminId = :adminId WHERE id = :id
+2025-02-13 14:46:56 - User registered successfully. User ID: 9
+2025-02-13 14:49:36 - Database connection successful.
+2025-02-13 14:49:36 - Table creation query executed successfully.
+2025-02-13 14:49:36 - Received form data - email: tabi9@gmail.com, username: tabi10, role: user
+2025-02-13 14:49:36 - Executing check query for existing user.
+2025-02-13 14:49:36 - User already exists: {"email":"tabi9@gmail.com","username":"tabi10"}
+2025-02-13 14:49:47 - Database connection successful.
+2025-02-13 14:49:47 - Table creation query executed successfully.
+2025-02-13 14:49:47 - Received form data - email: tabi11@gmail.com, username: tabi11, role: user
+2025-02-13 14:49:47 - Executing check query for existing user.
+2025-02-13 14:49:47 - No existing user found for email/username.
+2025-02-13 14:49:47 - Password hashed successfully.
+2025-02-13 14:49:47 - Prepared SQL query to insert user data: INSERT INTO users (email, username, password, role, avatar) VALUES (:email, :username, :password, :role, :avatar)
+2025-02-13 14:49:47 - Executing insert query...
+2025-02-13 14:49:47 - User inserted successfully.
+2025-02-13 14:49:47 - Last Insert ID: 10
+2025-02-13 14:49:47 - Executing adminId update query: UPDATE users SET adminId = :adminId WHERE id = :id
+2025-02-13 14:49:47 - User registered successfully. User ID: 10
+2025-02-13 14:55:05 - Database connection successful.
+2025-02-13 14:55:05 - Table creation query executed successfully.
+2025-02-13 14:55:05 - Received form data - email: tabi11@gmail.com, username: tabi11, role: user
+2025-02-13 14:55:05 - Executing check query for existing user.
+2025-02-13 14:55:05 - User already exists: {"email":"tabi11@gmail.com","username":"tabi11"}
+2025-02-13 14:55:16 - Database connection successful.
+2025-02-13 14:55:16 - Table creation query executed successfully.
+2025-02-13 14:55:16 - Received form data - email: tabi12@gmail.com, username: tabi12, role: user
+2025-02-13 14:55:16 - Executing check query for existing user.
+2025-02-13 14:55:16 - No existing user found for email/username.
+2025-02-13 14:55:16 - Password hashed successfully.
+2025-02-13 14:55:16 - Prepared SQL query to insert user data: INSERT INTO users (email, username, password, role, avatar) VALUES (:email, :username, :password, :role, :avatar)
+2025-02-13 14:55:16 - Executing insert query...
+2025-02-13 14:55:16 - User inserted successfully.
+2025-02-13 14:55:16 - Last Insert ID: 11
+2025-02-13 14:55:16 - Executing adminId update query: UPDATE users SET adminId = :adminId WHERE id = :id
+2025-02-13 14:55:16 - User registered successfully. User ID: 11
+2025-02-13 14:55:50 - Database connection successful.
+2025-02-13 14:55:50 - Table creation query executed successfully.
+2025-02-13 14:55:50 - Received form data - email: tabi12@gmail.com, username: tabi12, role: user
+2025-02-13 14:55:50 - Executing check query for existing user.
+2025-02-13 14:55:50 - User already exists: {"email":"tabi12@gmail.com","username":"tabi12"}
+2025-02-13 14:56:03 - Database connection successful.
+2025-02-13 14:56:03 - Table creation query executed successfully.
+2025-02-13 14:56:03 - Received form data - email: tabi13@gmail.com, username: tabi13, role: user
+2025-02-13 14:56:03 - Executing check query for existing user.
+2025-02-13 14:56:03 - No existing user found for email/username.
+2025-02-13 14:56:03 - Password hashed successfully.
+2025-02-13 14:56:03 - Prepared SQL query to insert user data: INSERT INTO users (email, username, password, role, avatar) VALUES (:email, :username, :password, :role, :avatar)
+2025-02-13 14:56:03 - Executing insert query...
+2025-02-13 14:56:03 - User inserted successfully.
+2025-02-13 14:56:03 - Last Insert ID: 12
+2025-02-13 14:56:03 - Executing adminId update query: UPDATE users SET adminId = :adminId WHERE id = :id
+2025-02-13 14:56:03 - User registered successfully. User ID: 12
+2025-02-13 16:47:55 - Database connection successful.
+2025-02-13 16:47:55 - Table creation query executed successfully.
+2025-02-13 16:47:55 - Received form data - email: nomi3@gmail.com, username: nomi3, role: user
+2025-02-13 16:47:55 - Executing check query for existing user.
+2025-02-13 16:47:55 - No existing user found for email/username.
+2025-02-13 16:47:56 - Password hashed successfully.
+2025-02-13 16:47:56 - Prepared SQL query to insert user data: INSERT INTO users (email, username, password, role, avatar) VALUES (:email, :username, :password, :role, :avatar)
+2025-02-13 16:47:56 - Executing insert query...
+2025-02-13 16:47:56 - User inserted successfully.
+2025-02-13 16:47:56 - Last Insert ID: 13
+2025-02-13 16:47:56 - Executing adminId update query: UPDATE users SET adminId = :adminId WHERE id = :id
+2025-02-13 16:47:56 - User registered successfully. User ID: 13
+2025-02-13 17:39:58 - Database connection successful.
+2025-02-13 17:39:58 - Table creation query executed successfully.
+2025-02-13 17:39:58 - Received form data - email: nomi@gmail.com, username: nomi, role: user
+2025-02-13 17:39:58 - Executing check query for existing user.
+2025-02-13 17:39:58 - No existing user found for email/username.
+2025-02-13 17:39:58 - Password hashed successfully.
+2025-02-13 17:39:58 - No picture file uploaded or there was an error.
+2025-02-13 17:39:58 - No picture uploaded or failed to upload picture.
+2025-02-13 17:39:58 - Prepared SQL query to insert user data: INSERT INTO users (email, username, password, role, avatar) VALUES (:email, :username, :password, :role, :avatar)
+2025-02-13 17:39:58 - Executing insert query...
+2025-02-13 17:39:58 - User inserted successfully.
+2025-02-13 17:39:58 - Last Insert ID: 14
+2025-02-13 17:39:58 - Executing adminId update query: UPDATE users SET adminId = :adminId WHERE id = :id
+2025-02-13 17:39:58 - User registered successfully. User ID: 14
+2025-02-13 17:40:40 - Database connection successful.
+2025-02-13 17:40:40 - Table creation query executed successfully.
+2025-02-13 17:40:40 - Received form data - email: nomi@gmail.com, username: nomi, role: user
+2025-02-13 17:40:40 - Executing check query for existing user.
+2025-02-13 17:40:40 - User already exists: {"email":"nomi@gmail.com","username":"nomi"}
+2025-02-13 17:40:57 - Database connection successful.
+2025-02-13 17:40:57 - Table creation query executed successfully.
+2025-02-13 17:40:57 - Received form data - email: nomis@gmail.com, username: nomi, role: user
+2025-02-13 17:40:57 - Executing check query for existing user.
+2025-02-13 17:40:57 - User already exists: {"email":"nomis@gmail.com","username":"nomi"}
+2025-02-13 17:41:03 - Database connection successful.
+2025-02-13 17:41:03 - Table creation query executed successfully.
+2025-02-13 17:41:03 - Received form data - email: nomiss@gmail.com, username: nomis, role: user
+2025-02-13 17:41:03 - Executing check query for existing user.
+2025-02-13 17:41:03 - No existing user found for email/username.
+2025-02-13 17:41:03 - Password hashed successfully.
+2025-02-13 17:41:03 - No picture file uploaded or there was an error.
+2025-02-13 17:41:03 - No picture uploaded or failed to upload picture.
+2025-02-13 17:41:03 - Prepared SQL query to insert user data: INSERT INTO users (email, username, password, role, avatar) VALUES (:email, :username, :password, :role, :avatar)
+2025-02-13 17:41:03 - Executing insert query...
+2025-02-13 17:41:03 - User inserted successfully.
+2025-02-13 17:41:03 - Last Insert ID: 15
+2025-02-13 17:41:03 - Executing adminId update query: UPDATE users SET adminId = :adminId WHERE id = :id
+2025-02-13 17:41:03 - User registered successfully. User ID: 15
+2025-02-13 17:45:53 - Database connection successful.
+2025-02-13 17:45:53 - Table creation query executed successfully.
+2025-02-13 17:45:53 - Received form data - email: nomi@gmail.com, username: nomi, role: user
+2025-02-13 17:45:53 - Executing check query for existing user.
+2025-02-13 17:45:53 - User already exists: {"email":"nomi@gmail.com","username":"nomi"}
+2025-02-13 17:46:00 - Database connection successful.
+2025-02-13 17:46:00 - Table creation query executed successfully.
+2025-02-13 17:46:00 - Received form data - email: nomiss@gmail.com, username: nomiss, role: user
+2025-02-13 17:46:00 - Executing check query for existing user.
+2025-02-13 17:46:00 - User already exists: {"email":"nomiss@gmail.com","username":"nomiss"}
+2025-02-13 17:46:07 - Database connection successful.
+2025-02-13 17:46:07 - Table creation query executed successfully.
+2025-02-13 17:46:07 - Received form data - email: nomissc@gmail.com, username: nomissc, role: user
+2025-02-13 17:46:07 - Executing check query for existing user.
+2025-02-13 17:46:07 - No existing user found for email/username.
+2025-02-13 17:46:07 - Password hashed successfully.
+2025-02-13 17:46:07 - Prepared SQL query to insert user data: INSERT INTO users (email, username, password, role, avatar) VALUES (:email, :username, :password, :role, :avatar)
+2025-02-13 17:46:07 - Executing insert query...
+2025-02-13 17:46:07 - User inserted successfully.
+2025-02-13 17:46:07 - Last Insert ID: 16
+2025-02-13 17:46:07 - Executing adminId update query: UPDATE users SET adminId = :adminId WHERE id = :id
+2025-02-13 17:46:07 - User registered successfully. User ID: 16
+2025-02-13 18:26:02 - Database connection successful.
+2025-02-13 18:26:02 - Table creation query executed successfully.
+2025-02-13 18:26:02 - Received form data - email: test@gmail.com, username: testuser, role: user
+2025-02-13 18:26:02 - Executing check query for existing user.
+2025-02-13 18:26:02 - No existing user found for email/username.
+2025-02-13 18:26:02 - Password hashed successfully.
+2025-02-13 18:26:02 - Prepared SQL query to insert user data: INSERT INTO users (email, username, password, role, avatar) VALUES (:email, :username, :password, :role, :avatar)
+2025-02-13 18:26:02 - Executing insert query...
+2025-02-13 18:26:02 - User inserted successfully.
+2025-02-13 18:26:02 - Last Insert ID: 17
+2025-02-13 18:26:02 - Executing adminId update query: UPDATE users SET adminId = :adminId WHERE id = :id
+2025-02-13 18:26:02 - User registered successfully. User ID: 17
+2025-02-14 06:58:40 - Database connection successful.
+2025-02-14 06:58:40 - Table creation failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '` VARCHAR(255) NOT NULL UNIQUE,
+        password VARCHAR(255) NOT NULL,
+   ...' at line 5
+2025-02-14 06:59:42 - Database connection successful.
+2025-02-14 06:59:43 - Table creation query executed successfully.
+2025-02-14 06:59:43 - Received form data - email: nomi, username: nomi@gmail.com, role: user
+2025-02-14 06:59:43 - Executing check query for existing user.
+2025-02-14 06:59:43 - No existing user found for email/username.
+2025-02-14 06:59:43 - Password hashed successfully.
+2025-02-14 06:59:43 - Prepared SQL query to insert user data: INSERT INTO users (email, username, password, role, avatar) VALUES (:email, :username, :password, :role, :avatar)
+2025-02-14 06:59:43 - Executing insert query...
+2025-02-14 06:59:43 - User inserted successfully.
+2025-02-14 06:59:43 - Last Insert ID: 1
+2025-02-14 06:59:43 - Executing adminId update query: UPDATE users SET adminId = :adminId WHERE id = :id
+2025-02-14 06:59:43 - User registered successfully. User ID: 1

@@ -1,0 +1,12 @@
+.custom-navbar {
+  background-color: #333; /* Dark background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for the navbar */
+}
+
+.custom-navbar .navbar-toggler {
+  border-color: #fff; /* Toggler border color */
+}
+
+.custom-navbar .navbar-toggler-icon {
+  background-color: #fff; /* Toggler icon color */
+}
