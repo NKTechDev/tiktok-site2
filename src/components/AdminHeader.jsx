@@ -161,7 +161,7 @@ const AdminHeader = () => {
                         <Grid item xs={6} sm={4} container justifyContent="flex-end" alignItems="center" sx={{ display: { xs: 'none', sm: 'flex' } }}>
                             {isAuthenticated ? (
                                 <>
-                                    <Button
+                                    {/* <Button
                                         onClick={handleModalOpen}
                                         sx={{
                                             color: 'black',
@@ -183,7 +183,7 @@ const AdminHeader = () => {
                                         }}
                                     >
                                         <AddIcon sx={{ marginRight: 1 }} /> Upload
-                                    </Button>
+                                    </Button> */}
                                     <Avatar src={user?.picture} alt="User Avatar" style={{ width: 40, height: 40, marginRight: 10 }} />
                                     <span style={{ marginRight: 15, color: 'white' }}>{user?.name}</span>
                                     <Button onClick={handleLogout}
@@ -259,9 +259,7 @@ const AdminHeader = () => {
                                     <Button fullWidth onClick={handleLogout} startIcon={<LogoutIcon />} sx={{ color: 'black' }}>
                                         Logout
                                     </Button>
-                                    <Button fullWidth onClick={handleModalOpen} startIcon={<AddIcon />} sx={{ color: 'black' }}>
-                                        Upload
-                                    </Button>
+
                                 </>
                             ) : (
                                 <Button fullWidth onClick={handleLogin} startIcon={<LoginIcon />} sx={{ color: 'black' }}>

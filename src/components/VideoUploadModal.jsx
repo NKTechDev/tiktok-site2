@@ -1,30 +1,42 @@
-import React, { useState } from 'react';
-import { Modal, Box, Typography, Button, TextField, MenuItem, Select, InputLabel, FormControl, FormHelperText, InputAdornment, CircularProgress } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Modal, Box, Typography, Button, TextField, CircularProgress, Autocomplete } from '@mui/material';
 import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Import Toastify styles
 
-
-// Initialize Toastify
 const VideoUploadModal = ({ open, handleClose }) => {
-    const [videoFile, setVideoFile] = useState(null); 
-    const [errorMessage, setErrorMessage] = useState(''); 
+    const [videoFile, setVideoFile] = useState(null);
+    const [errorMessage, setErrorMessage] = useState('');
     const [category, setCategory] = useState('');
-    const [isUploading, setIsUploading] = useState(false); 
-    const [searchTerm, setSearchTerm] = useState('');
+    const [isUploading, setIsUploading] = useState(false);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [videoDuration, setVideoDuration] = useState(0);
     const [durationError, setDurationError] = useState('');
-    const [uploadMessage, setUploadMessage] = useState(''); // New state for upload message
-    const {  user , isLoading } = useAuth0();
+    const { user } = useAuth0();
 
+    // State for categories and loading/error state
+    const [categories, setCategories] = useState([]);
+    const [categoriesLoading, setCategoriesLoading] = useState(true);
+    const [fetchError, setFetchError] = useState('');
 
-    // Dummy categories (these would ideally come from an API)
-    const categories = [
-        'Education', 'Entertainment', 'Music', 'Sports', 'Technology', 
-        'Lifestyle', 'Health', 'Gaming', 'News', 'Cooking', 'Science', 
-        'Art', 'Travel', 'Business', 'Comedy', 'Documentary'
-    ];
+    useEffect(() => {
+        fetchCategories();
+    }, []);
+
+    // Fetch categories from API
+    const fetchCategories = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/api/v1/category'); // Replace with your API URL
+            setCategories(response.data.categories); // Set the fetched categories
+            setCategoriesLoading(false); // Set loading to false once categories are fetched
+        } catch (err) {
+            console.error('Error fetching categories:', err);
+            setFetchError('Error fetching categories.');
+            setCategoriesLoading(false); // Set loading to false if there's an error
+        }
+    };
 
     // Handle file selection and validation
     const handleFileChange = (event) => {
@@ -59,32 +71,26 @@ const VideoUploadModal = ({ open, handleClose }) => {
     };
 
     // Handle category change
-    const handleCategoryChange = (event) => {
-        setCategory(event.target.value);
-    };
-
-    // Handle search term change
-    const handleSearchChange = (event) => {
-        setSearchTerm(event.target.value);
+    const handleCategoryChange = (event, newCategory) => {
+        setCategory(newCategory);
     };
 
     // Handle upload video logic
     const handleUpload = () => {
         if (!category || !videoFile || !title) {
-            setUploadMessage('Please fill in all required fields: Title, Category, and Video.');
+            toast.error('Please fill in all required fields: Title, Category, and Video.');
             return;
         }
 
         setIsUploading(true);
-        setUploadMessage(''); // Clear previous message if any
+        toast.dismiss(); // Dismiss any previous toasts
 
         const formData = new FormData();
         formData.append('video', videoFile);
-        formData.append('category', category);
+        formData.append('category', category._id); // Assuming category is an object with _id
         formData.append('title', title);
         formData.append('description', description);
         formData.append('sub', user.sub);  // Add user.sub to the formData
-
 
         // Upload video with axios
         axios.post('http://localhost:5000/api/v1/video/upload', formData, {
@@ -94,159 +100,130 @@ const VideoUploadModal = ({ open, handleClose }) => {
         })
         .then(response => {
             setIsUploading(false);
-            setUploadMessage('Video uploaded successfully!'); // Set success message
-            setVideoFile(null)
+            toast.success('Video uploaded successfully!'); // Success toast
+            setVideoFile(null);
             setTitle('');
             setCategory('');
-            setDescription('')
-            setUploadMessage('')
+            setDescription('');
         })
         .catch(error => {
             setIsUploading(false);
-            setUploadMessage('Error uploading video. Please try again.'); // Set error message
+            toast.error('Error uploading video. Please try again.'); // Error toast
             console.error('Error uploading video:', error);
         });
     };
 
-    // Filter categories based on the search term
-    const filteredCategories = categories.filter((cat) =>
-        cat.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
     return (
-        <Modal open={open} onClose={handleClose}>
-            <Box sx={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                backgroundColor: 'white',
-                padding: 4,
-                borderRadius: 2,
-                boxShadow: 24,
-                minWidth: 400,
-                maxWidth: 600,
-                maxHeight: '100vh',
-                overflowY: 'auto',
-                width: '90%',
-            }}>
-                <Typography variant="h6" gutterBottom align="center">Upload a Video</Typography>
+        <>
+            {/* Toastify Container */}
+            <ToastContainer position="top-center" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
 
-                {/* Video Title */}
-                <TextField
-                    label="Title"
-                    fullWidth
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    sx={{ marginBottom: 2 }}
-                />
+            <Modal open={open} onClose={handleClose}>
+                <Box sx={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    backgroundColor: 'white',
+                    padding: 4,
+                    borderRadius: 2,
+                    boxShadow: 24,
+                    minWidth: 400,
+                    maxWidth: 600,
+                    maxHeight: '100vh',
+                    overflowY: 'auto',
+                    width: '90%',
+                }}>
+                    <Typography variant="h6" gutterBottom align="center">Upload a Video</Typography>
 
-                {/* File Input for Video */}
-                <Box sx={{ marginBottom: 2 }}>
-                    <Typography variant="body2" color="textSecondary" align="center">
-                        Please select a video file (Max size: 25 MB)
-                    </Typography>
-                    <input
-                        type="file"
-                        accept="video/*,image/*"
-                        onChange={handleFileChange}
-                        style={{ marginBottom: '16px', width: '100%' }}
-                    />
-                </Box>
-
-                {/* Error message if file is too large or invalid */}
-                {errorMessage && (
-                    <Typography variant="body2" color="error" align="center" sx={{ marginBottom: 2 }}>
-                        {errorMessage}
-                    </Typography>
-                )}
-
-                {/* Display video preview */}
-                {videoFile && (
-                    <Box sx={{ marginBottom: 2 }}>
-                        <video width="100%" controls>
-                            <source src={URL.createObjectURL(videoFile)} type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
-                    </Box>
-                )}
-
-                {/* Category Search */}
-                <Box sx={{ marginBottom: 2 }}>
+                    {/* Video Title */}
                     <TextField
+                        label="Title"
                         fullWidth
-                        placeholder="Search categories..."
-                        value={searchTerm}
-                        onChange={handleSearchChange}
-                        InputProps={{
-                            startAdornment: <InputAdornment position="start">🔍</InputAdornment>,
-                        }}
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        sx={{ marginBottom: 2 }}
                     />
-                </Box>
 
-                {/* Category Dropdown with Scroll */}
-                <FormControl fullWidth sx={{ marginBottom: 2 }}>
-                    <InputLabel>Category</InputLabel>
-                    <Select
+                    {/* File Input for Video */}
+                    <Box sx={{ marginBottom: 2 }}>
+                        <Typography variant="body2" color="textSecondary" align="center">
+                            Please select a video file (Max size: 25 MB Max duration: 60 seconds)
+                        </Typography>
+                        <input
+                            type="file"
+                            accept="video/*,image/*"
+                            onChange={handleFileChange}
+                            style={{ marginBottom: '16px', width: '100%' }}
+                        />
+                    </Box>
+
+                    {/* Error message if file is too large or invalid */}
+                    {errorMessage && (
+                        <Typography variant="body2" color="error" align="center" sx={{ marginBottom: 2 }}>
+                            {errorMessage}
+                        </Typography>
+                    )}
+
+                    {/* Display video preview */}
+                    {videoFile && (
+                        <Box sx={{ marginBottom: 2 }}>
+                            <video width="100%" height="auto" style={{ maxHeight: '300px', objectFit: 'cover' }} controls>
+                                <source src={URL.createObjectURL(videoFile)} type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        </Box>
+                    )}
+
+                    {/* Category Dropdown with Autocomplete */}
+                    <Autocomplete
                         value={category}
                         onChange={handleCategoryChange}
-                        label="Category"
-                        displayEmpty
-                        MenuProps={{
-                            PaperProps: {
-                                style: {
-                                    maxHeight: 200,
-                                    overflowY: 'auto',
-                                },
-                            },
-                        }}
-                    >
-                        {filteredCategories.map((category, index) => (
-                            <MenuItem key={index} value={category}>
-                                {category}
-                            </MenuItem>
-                        ))}
-                    </Select>
-                    <FormHelperText>Select a category for your video</FormHelperText>
-                </FormControl>
+                        options={categories}
+                        getOptionLabel={(option) => option.name}  // Assuming the category object has a `name` field
+                        isOptionEqualToValue={(option, value) => option._id === value._id}  // Assuming category has `_id`
+                        renderInput={(params) => (
+                            <TextField
+                                {...params}
+                                label="Category"
+                                fullWidth
+                                variant="outlined"
+                                sx={{ marginBottom: 2 }}
+                            />
+                        )}
+                    />
 
-                {/* Description Field (Optional) */}
-                <TextField
-                    label="Description (Optional)"
-                    fullWidth
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    sx={{ marginBottom: 2 }}
-                    multiline
-                    rows={4}
-                />
+                    {/* Description Field */}
+                    <TextField
+                        label="Description (Optional)"
+                        fullWidth
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        sx={{ marginBottom: 2 }}
+                        multiline
+                        rows={4}
+                    />
 
-                {/* Duration Error (Optional) */}
-                {durationError && (
-                    <Typography variant="body2" color="error" align="center" sx={{ marginBottom: 2 }}>
-                        {durationError}
-                    </Typography>
-                )}
-
-                {/* Upload Button */}
-                <Box sx={{ marginTop: 2, textAlign: 'center' }}>
-                    {isUploading ? (
-                        <CircularProgress />
-                    ) : (
-                        <Button variant="contained" onClick={handleUpload} color="primary" fullWidth>
-                            Upload Video
-                        </Button>
+                    {/* Duration Error */}
+                    {durationError && (
+                        <Typography variant="body2" color="error" align="center" sx={{ marginBottom: 2 }}>
+                            {durationError}
+                        </Typography>
                     )}
-                </Box>
 
-                {/* Display upload message */}
-                {uploadMessage && (
-                    <Typography variant="body2" color={uploadMessage.includes('Error') ? 'error' : 'success'} align="center" sx={{ marginTop: 2 }}>
-                        {uploadMessage}
-                    </Typography>
-                )}
-            </Box>
-        </Modal>
+                    {/* Upload Button */}
+                    <Box sx={{ marginTop: 2, textAlign: 'center' }}>
+                        {isUploading ? (
+                            <CircularProgress />
+                        ) : (
+                            <Button variant="contained" onClick={handleUpload} color="primary" fullWidth>
+                                Upload Video
+                            </Button>
+                        )}
+                    </Box>
+                </Box>
+            </Modal>
+        </>
     );
 };
 

@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, Card, CardContent, CardMedia, Typography, Button, CircularProgress, Box } from '@mui/material';
+import { Grid, Card, CardContent, CardMedia, Typography, Button, CircularProgress, Box, Modal, IconButton } from '@mui/material';
 import { useAuth0 } from '@auth0/auth0-react'; // Importing the useAuth0 hook
 import axios from 'axios'; // We will use axios to fetch data from the API
+import DeleteIcon from '@mui/icons-material/Delete'; // Delete icon for button
+import { toast, ToastContainer } from 'react-toastify'; // Importing react-toastify
+import 'react-toastify/dist/ReactToastify.css'; // Import the CSS for react-toastify
 
-const CategoryPage = () => {
+const AdminCategoryPage = () => {
   const { loginWithRedirect, logout, user, isAuthenticated, isLoading, error } = useAuth0(); // Using Auth0's hook
   const [categories, setCategories] = useState([]); // To hold the fetched categories
   const [categoriesLoading, setCategoriesLoading] = useState(true); // Loading state for categories
   const [fetchError, setFetchError] = useState(null); // Error state for the fetch call
+  const [openModal, setOpenModal] = useState(false); // State for opening the modal
+  const [categoryToDelete, setCategoryToDelete] = useState(null); // Category to be deleted
 
   // Fetch categories from the API
   useEffect(() => {
@@ -32,6 +37,32 @@ const CategoryPage = () => {
 
   const handleLogout = () => {
     logout({ returnTo: window.location.origin });
+  };
+
+  // Open the confirmation modal
+  const handleDeleteClick = (category) => {
+    setCategoryToDelete(category); // Set the category to be deleted
+    setOpenModal(true); // Open the modal
+  };
+
+  // Close the confirmation modal
+  const handleCloseModal = () => {
+    setOpenModal(false); // Close the modal
+    setCategoryToDelete(null); // Reset the category to delete
+  };
+
+  // Handle the deletion of the category
+  const handleConfirmDelete = async () => {
+    try {
+      const response = await axios.delete(`http://localhost:5000/api/v1/category/delete/${categoryToDelete._id}`);
+      toast.success('Category deleted successfully!'); // Success toast message
+      // Refresh the categories list after deletion
+      setCategories(categories.filter((category) => category._id !== categoryToDelete._id));
+      handleCloseModal(); // Close the modal
+    } catch (err) {
+      console.error('Error deleting category:', err);
+      toast.error('Error deleting category.'); // Error toast message
+    }
   };
 
   if (isLoading || categoriesLoading) {
@@ -137,12 +168,55 @@ const CategoryPage = () => {
                   {category.name}
                 </Typography>
               </CardContent>
+              {/* Delete button */}
+              <Box position="absolute" top={10} right={10}>
+                <IconButton
+                  color="error"
+                  onClick={() => handleDeleteClick(category)} // Show confirmation modal
+                >
+                  <DeleteIcon />
+                </IconButton>
+              </Box>
             </Card>
           </Grid>
         ))}
       </Grid>
+
+      {/* Confirmation Modal */}
+      <Modal
+        open={openModal}
+        onClose={handleCloseModal}
+        aria-labelledby="confirm-delete-modal"
+        aria-describedby="confirm-delete-description"
+      >
+        <Box
+          sx={{
+            width: 300,
+            padding: 2,
+            margin: 'auto',
+            backgroundColor: '#333',
+            borderRadius: '8px',
+            color: 'white',
+            textAlign: 'center',
+            marginTop: '20%',
+          }}
+        >
+          <Typography variant="h6" color="white" gutterBottom>
+            Are you sure you want to delete this category?
+          </Typography>
+          <Button variant="outlined" color="primary" onClick={handleCloseModal} sx={{ marginRight: 2 }}>
+            Cancel
+          </Button>
+          <Button variant="contained" color="error" onClick={handleConfirmDelete}>
+            Confirm
+          </Button>
+        </Box>
+      </Modal>
+
+      {/* React Toastify Container */}
+      <ToastContainer />
     </Box>
   );
 };
 
-export default CategoryPage;
+export default AdminCategoryPage;
